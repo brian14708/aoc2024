@@ -2,17 +2,23 @@ import argv
 import gleam/dict
 import gleam/io
 import gleam/result
+import gleam/string
 import simplifile
 
 import day01
 
 pub type Error {
   ReadFileError(simplifile.FileError)
+  ProgramError(String)
   InvalidArguments
 }
 
 pub fn main() -> Result(Nil, Error) {
-  let solutions = dict.from_list([#("day01_part1", day01.part1)])
+  let solutions =
+    dict.from_list([
+      #("day01_part1", day01.part1),
+      #("day01_part2", day01.part2),
+    ])
 
   case argv.load().arguments {
     [day, part, filepath] -> {
@@ -22,7 +28,11 @@ pub fn main() -> Result(Nil, Error) {
           filepath
           |> simplifile.read
           |> result.map_error(ReadFileError)
-          |> result.map(solution)
+          |> result.then(fn(x) {
+            solution(string.trim(x)) |> result.map_error(ProgramError)
+          })
+          |> result.map(io.println)
+          |> result.map_error(io.debug)
         }
         Error(_) -> {
           io.println("Unknown day or part")
