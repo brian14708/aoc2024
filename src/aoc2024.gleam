@@ -6,6 +6,7 @@ import gleam/string
 import simplifile
 
 import day01
+import day02
 
 pub type Error {
   ReadFileError(simplifile.FileError)
@@ -18,6 +19,8 @@ pub fn main() -> Result(Nil, Error) {
     dict.from_list([
       #("day01_part1", day01.part1),
       #("day01_part2", day01.part2),
+      #("day02_part1", day02.part1),
+      #("day02_part2", day02.part2),
     ])
 
   case argv.load().arguments {
