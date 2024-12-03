@@ -2,7 +2,7 @@ import day02
 import gleam/string
 import gleeunit/should
 
-pub fn day01_test() {
+pub fn day02_test() {
   let s =
     "
 7 6 4 2 1
