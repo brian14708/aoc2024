@@ -12,6 +12,7 @@ import day04
 import day05
 import day06
 import day07
+import day08
 
 pub type Error {
   ReadFileError(simplifile.FileError)
@@ -36,6 +37,8 @@ pub fn main() -> Result(Nil, Error) {
       #("day06_part2", day06.part2),
       #("day07_part1", day07.part1),
       #("day07_part2", day07.part2),
+      #("day08_part1", day08.part1),
+      #("day08_part2", day08.part2),
     ])
 
   case argv.load().arguments {
