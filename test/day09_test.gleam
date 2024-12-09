@@ -1,13 +1,8 @@
 import day09
-import gleam/string
 import gleeunit/should
 
 pub fn day09_test() {
-  let s =
-    "
-TODO
-"
-    |> string.trim
-  day09.part1(s) |> should.equal(Error("unimplemented"))
-  day09.part2(s) |> should.equal(Error("unimplemented"))
+  let s = "2333133121414131402"
+  day09.part1(s) |> should.equal(Ok("1928"))
+  day09.part2(s) |> should.equal(Ok("2858"))
 }
