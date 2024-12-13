@@ -5,9 +5,18 @@ import gleeunit/should
 pub fn day12_test() {
   let s =
     "
-TODO
+RRRRIICCFF
+RRRRIICCCF
+VVRRRCCFFF
+VVRCCCJFFF
+VVVVCJJCFE
+VVIVCCJJEE
+VVIIICJJEE
+MIIIIIJJEE
+MIIISIJEEE
+MMMISSJEEE
 "
     |> string.trim
-  day12.part1(s) |> should.equal(Error("unimplemented"))
-  day12.part2(s) |> should.equal(Error("unimplemented"))
+  day12.part1(s) |> should.equal(Ok("1930"))
+  day12.part2(s) |> should.equal(Ok("1206"))
 }
