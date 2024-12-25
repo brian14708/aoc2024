@@ -5,9 +5,13 @@ import gleeunit/should
 pub fn day21_test() {
   let s =
     "
-TODO
+029A
+980A
+179A
+456A
+379A
 "
     |> string.trim
-  day21.part1(s) |> should.equal(Error("unimplemented"))
-  day21.part2(s) |> should.equal(Error("unimplemented"))
+  day21.part1("029A") |> should.equal(Ok("1972"))
+  day21.part1(s) |> should.equal(Ok("126384"))
 }
